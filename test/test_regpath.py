@@ -57,12 +57,15 @@ class Test(unittest.TestCase):
         with self.assertRaises(NotImplementedError):
             p.as_uri()
 
+        # TODO: implement .resolve()
+
     def test_remote(self):
         p = RegistryPath(r'\\computername\HKCU\Software')
         self.assertEqual(str(p), r'\\computername\HKCU\Software')
         self.assertEqual(p.drive, r'\\computername\HKCU')
         self.assertEqual(p.root, '\\')
         self.assertEqual(p.anchor, '\\\\computername\\HKCU\\')  # anchor == drive + root
+        # TODO: connect remote computer actually
 
     def test_dict_interface(self):
         p = RegistryPath(r'HKEY_CLASSES_ROOT\.exe')
