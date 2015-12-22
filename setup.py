@@ -5,6 +5,11 @@ import ast
 from setuptools import setup
 
 
+def readme():
+    with open('README.rst') as f:
+        return f.read()
+
+
 def get_meta(filename):
     """Get top level module metadata without execution.
     """
@@ -41,8 +46,7 @@ setup(
     url=meta['__url__'],
     download_url=meta['__download_url__'],
     description=meta['__doc__'].strip().splitlines()[0],
-    long_description=meta['__doc__'],
-    # long_description=readme(),
+    long_description=readme(),
     classifiers=meta['__classifiers__'],
     license=meta['__license__'],
 )
